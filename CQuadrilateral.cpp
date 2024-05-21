@@ -10,10 +10,12 @@ Quadrilateral::Quadrilateral() {
 } 
 
 /// @brief constructor 
-/// sf a struct of type Format with infos on fill color and outline color
+/// sf a struct of type Format with infos on fill color and outline color, initialize fill and outline with black
 Quadrilateral::Quadrilateral(Format sf) {
 
-	
+	cout << "Quadrilateral - constructor - color black" << endl;
+	shapef->fill = sf.fill;
+	shapef->outline =sf.outline ;   
 
 } 
 
@@ -31,6 +33,7 @@ Quadrilateral::~Quadrilateral() {
 
 	cout << "Quadrilateral - destructor" << endl;
 	Reset();
+	delete shapef;
 
 }  
 
@@ -92,11 +95,13 @@ void Quadrilateral::Init(const Quadrilateral &o) {
 	
 }
 
-/// @brief total reset of the object  
+/// @brief total reset of the object and color  
 void Quadrilateral::Reset() {
 	
 	sides[0]= sides[1]= sides[2]= sides[3] = 0.;
-	
+	shapef->fill = k;
+	shapef->outline = k;
+
 }
 
 /// @brief get the area of the object
@@ -133,12 +138,15 @@ void Quadrilateral::GetSides(float &s0, float &s1, float &s2, float &s3) {
 /// @param sf  a struct of type Format to be filled with the format fields
 void Quadrilateral::GetFormat(Format &sf) {
 
+	cout << "Quadrilateral - Get format - fill: " << sf.fill << " - outline: " << sf.outline << endl;
+
 } 
 
 /// @brief get the fill color of the object 
 /// @param fill fill color 
 Color Quadrilateral::GetFill() {
 	
+	return shapef->fill;
 	
 }
 
@@ -146,6 +154,7 @@ Color Quadrilateral::GetFill() {
 /// @param outline outline color 
 Color Quadrilateral::GetOutline() {
 
+	return shapef->outline;
 	
 }
 
@@ -154,6 +163,8 @@ Color Quadrilateral::GetOutline() {
 /// @param sf a struct of type Format filled with the format fields
 void Quadrilateral::SetFormat(Format sf) {
 	
+	shapef->fill = sf.fill;
+	shapef->outline = sf.outline;
 	
 }
 
@@ -161,13 +172,15 @@ void Quadrilateral::SetFormat(Format sf) {
 /// @param fill fill color 
 void Quadrilateral::SetFill(Color fill) {
 
-	
+	shapef->fill = fill;
+
 }
 
 /// @brief set the outline color of the object 
 /// @param outline outline color 
 void Quadrilateral::SetOutline(Color outline) {
 	
+	shapef->outline = outline;
 	
 }
 

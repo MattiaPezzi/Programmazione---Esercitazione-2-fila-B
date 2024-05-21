@@ -1,7 +1,7 @@
 /*! \file CQuadrilateral.h
 	\brief Declaration of the general class Quadrilateral
 
-	Details.
+	Pezzi Mattia - Pichetto Andrea
 */
 
 
@@ -20,7 +20,7 @@ protected:
 
 	float sides[4];
 	
-	Format* shapef;
+	Format* shapef = new Format;
 	
 	void SetSides(float s1, float s2, float s3, float s4); 
 	
