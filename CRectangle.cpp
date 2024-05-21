@@ -38,13 +38,25 @@ Rectangle::Rectangle(float w, float h) {
 /// @param w width of the rectangle
 /// @param h height of the rectangle 
 /// @param sf struct of type Format
-Rectangle::Rectangle(float w, float h, Format sf) {
+Rectangle::Rectangle(float w, float h, Format sf):Quadrilateral(sf)  {
 
-	
+	Init();
+
+	cout << "Rectangle and color - constructor" << endl;
+
+	if (w <= 0. || h <= 0.) {
+		WarningMessage("constructor: width and height should be > 0");
+		SetDim(0, 0);
+	}
+	else
+		SetDim(w, h);
 
 }
 
-/// @brief destructor 
+/// @brief destructor  {
+
+	
+
 Rectangle::~Rectangle() {
 
 	cout << "Rectangle - destructor" << endl;
@@ -80,7 +92,7 @@ Rectangle& Rectangle::operator=(const Rectangle &r) {
 /// @return true if the two objects have the same width and the same length  
 bool Rectangle::operator==(const Rectangle &r) { 
 
-	if (r.width == width && r.height == height)
+	if (r.width == width && r.height == height && r.shapef==shapef)
 		return true;
 		
 	return false;
@@ -99,13 +111,15 @@ void Rectangle::Init(const Rectangle &r) {
 		
 	Init();
 	SetDim(r.width,r.height);
-	
+	shapef = r.shapef;
 }
 
 /// @brief total reset of the object  
 void Rectangle::Reset() {
 	
 	SetDim(0,0);
+	shapef->fill = k;
+	shapef->outline = k;
 	
 }
 

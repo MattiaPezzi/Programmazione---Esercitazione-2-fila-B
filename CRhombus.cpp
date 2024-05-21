@@ -39,11 +39,19 @@ Rhombus::Rhombus(float dL, float dS) {
 /// @param dL diagonal (longer)
 /// @param dS diagonal (shorter)
 /// @param sf struct of type Format
-Rhombus::Rhombus(float dL, float dS, Format sf) {
+Rhombus::Rhombus(float dL, float dS, Format sf):Quadrilateral(sf) {
 
+	Init();
+
+	cout << "Rhombus and color - constructor" << endl;
+
+	if (dL <= 0. || dS <= 0.) {
+		WarningMessage("constructor: diagonals should be > 0");
+		SetDim(0, 0);
+	}
+	else
+		SetDim(dL, dS);
 	
-
-
 }
 
 /// @brief destructor 

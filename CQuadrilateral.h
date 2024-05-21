@@ -20,7 +20,7 @@ protected:
 
 	float sides[4];
 	
-	Format* shapef = new Format;
+	Format* shapef;
 	
 	void SetSides(float s1, float s2, float s3, float s4); 
 	
