@@ -10,18 +10,20 @@ Quadrilateral::Quadrilateral() {
 } 
 
 /// @brief constructor 
-/// sf a struct of type Format with infos on fill color and outline color, initialize fill and outline with black
+/// @param sf a struct of type Format with infos on fill color and outline color
 Quadrilateral::Quadrilateral(Format sf) {
 
 	Init();
 	if (sf.fill == NULL || sf.outline == NULL) {
 		WarningMessage("constructor: Color ptr was NULL");
-		Init()
-		
+		Init();
 	}
-	shapef->fill = sf.fill;
-	shapef->outline =sf.outline; 
-	cout << "Quadrilateral and color - constructor " << endl;
+	else
+	{
+		shapef->fill = sf.fill;
+		shapef->outline = sf.outline;
+		cout << "Quadrilateral and color - constructor " << endl;
+	}
 
 } 
 
@@ -35,6 +37,7 @@ Quadrilateral::Quadrilateral(const Quadrilateral &o) {
 }
 
 /// @brief destructor
+/// Destructor and Ptr delete
 Quadrilateral::~Quadrilateral() {
 
 	cout << "Quadrilateral - destructor" << endl;
@@ -72,14 +75,16 @@ Quadrilateral& Quadrilateral::operator=(const Quadrilateral &o) {
 
 /// @brief overload of operator == 
 /// @param o reference to the object on the right side of the operator 
-/// @return always false 
+/// @return true when colors are the same, false elsewhere 
 bool Quadrilateral::operator==(const Quadrilateral &o) {
+	if (o.shapef == shapef)
+		return true;
 
 	return false;
 }
 
 
-/// @brief default initialization of the object
+/// @brief default initialization of the object and color (black)
 void Quadrilateral::Init() {
 	
 	shapef = new (Format);
@@ -90,7 +95,7 @@ void Quadrilateral::Init() {
 }
 
 
-/// @brief initialization of the object as a copy of an object 
+/// @brief initialization of the object as a copy of an object and color
 /// @param r reference to the object that should be copied 
 void Quadrilateral::Init(const Quadrilateral &o) {
 	Reset();
@@ -103,7 +108,7 @@ void Quadrilateral::Init(const Quadrilateral &o) {
 	
 }
 
-/// @brief total reset of the object and color  
+/// @brief total reset of the object and color to black
 void Quadrilateral::Reset() {
 	
 	sides[0]= sides[1]= sides[2]= sides[3] = 0.;
@@ -151,7 +156,7 @@ void Quadrilateral::GetFormat(Format &sf) {
 } 
 
 /// @brief get the fill color of the object 
-/// @param fill fill color 
+/// @param fill Shape fill color 
 Color Quadrilateral::GetFill() {
 	
 	return shapef->fill;
@@ -159,7 +164,7 @@ Color Quadrilateral::GetFill() {
 }
 
 /// @brief get the outline color of the object 
-/// @param outline outline color 
+/// @param outline Shape outline color 
 Color Quadrilateral::GetOutline() {
 
 	return shapef->outline;
@@ -177,7 +182,7 @@ void Quadrilateral::SetFormat(Format sf) {
 }
 
 /// @brief set the fill color of the object 
-/// @param fill fill color 
+/// @param fill Shape fill color 
 void Quadrilateral::SetFill(Color fill) {
 
 	shapef->fill = fill;
@@ -185,7 +190,7 @@ void Quadrilateral::SetFill(Color fill) {
 }
 
 /// @brief set the outline color of the object 
-/// @param outline outline color 
+/// @param outline Shape outline color 
 void Quadrilateral::SetOutline(Color outline) {
 	
 	shapef->outline = outline;

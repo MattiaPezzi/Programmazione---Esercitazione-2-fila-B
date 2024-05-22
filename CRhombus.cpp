@@ -87,10 +87,10 @@ Rhombus& Rhombus::operator=(const Rhombus &r) {
 
 /// @brief overload of operator == 
 /// @param r reference to the object on the right side of the operator 
-/// @return true if the two objects have the same width and the same length  
+/// @return true if the two objects have the same width and the same length and colors 
 bool Rhombus::operator==(const Rhombus &r) { 
 
-	if (r.diagL == diagL && r.diagS == diagS)
+	if (r.diagL == diagL && r.diagS == diagS && r.shapef==shapef)
 		return true;
 		
 	return false;
@@ -109,6 +109,7 @@ void Rhombus::Init(const Rhombus &r) {
 	
 	Init();
 	SetDim(r.diagL,r.diagS);
+	shapef = r.shapef;
 	
 }
 
@@ -116,6 +117,8 @@ void Rhombus::Init(const Rhombus &r) {
 void Rhombus::Reset() {
 	
 	SetDim(0,0);
+	shapef->fill = k;
+	shapef->outline = k;
 	
 }
 
@@ -244,8 +247,54 @@ void Rhombus::Dump() {
 }
 
 
-/// @brief to draw a rhombus
+/// @brief to draw a colored rhombus
 void Rhombus::Drawing() {
+
+	cout << endl << "Rhombus - Drawing: " << endl;
+	switch (shapef->outline)
+	{
+	case 0:
+		cout << "Outline Black" << endl;
+		break;
+	case 1:
+		cout << "Outline White" << endl;
+		break;
+	case 2:
+		cout << "Outline Red" << endl;
+		break;
+	case 3:
+		cout << "Outline Green" << endl;
+		break;
+	case 4:
+		cout << "Outline Blue" << endl;
+		break;
+	default:
+		WarningMessage("Rectangle - Drawing: Outline not colored");
+		break;
+	}
+
+	switch (shapef->fill)
+	{
+	case 0:
+		cout << "Fill Black" << endl;
+		break;
+	case 1:
+		cout << "Fill White" << endl;
+		break;
+	case 2:
+		cout << "Fill Red" << endl;
+		break;
+	case 3:
+		cout << "Fill Green" << endl;
+		break;
+	case 4:
+		cout << "Fill Blue" << endl;
+		break;
+	default:
+		WarningMessage("Rectangle - Drawing: Fill not colored");
+		break;
+	}
+	cout << endl;
 	
 }
 

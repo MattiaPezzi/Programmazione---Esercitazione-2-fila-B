@@ -44,7 +44,6 @@ int main() {
 	quadList[5]= &rhoC;
 
 	Show();
-	
 	rectA.SetFill(g);
 	rhoC.SetOutline(r);
 	rhoA=rhoC;

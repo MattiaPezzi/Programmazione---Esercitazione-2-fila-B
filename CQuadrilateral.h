@@ -2,6 +2,7 @@
 	\brief Declaration of the general class Quadrilateral
 
 	Pezzi Mattia - Pichetto Andrea
+	Implementation of color drawing in quadrilateral shapes
 */
 
 

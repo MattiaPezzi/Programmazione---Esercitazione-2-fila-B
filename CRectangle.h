@@ -1,7 +1,8 @@
 /*! \file CRectangle.h
 	\brief Declaration of the class Rectangle
 
-	Details.
+    Pezzi Mattia - Pichetto Andrea
+	Implementation of color drawing in quadrilateral shapes
 */
 
 
@@ -64,7 +65,7 @@ public:
 	float GetWidth(); 
 	/// @}
 	
-	/// @name PURE VIRTUAL FUNCTIONS - IMPLEMENTATION
+	/// @name PURE VIRTUAL FUNCTIONS - RECTANGLE DRAWING
 	/// @{
 	void Drawing();
 	/// @}

@@ -54,14 +54,10 @@ Rectangle::Rectangle(float w, float h, Format sf):Quadrilateral(sf)  {
 }
 
 /// @brief destructor  {
-
-	
-
 Rectangle::~Rectangle() {
 
 	cout << "Rectangle - destructor" << endl;
 	Reset();
-
 }
 
 /// @brief copy constructor 
@@ -89,7 +85,7 @@ Rectangle& Rectangle::operator=(const Rectangle &r) {
 
 /// @brief overload of operator == 
 /// @param r reference to the object on the right side of the operator 
-/// @return true if the two objects have the same width and the same length  
+/// @return true if the two objects have the same width and the same length and same colors 
 bool Rectangle::operator==(const Rectangle &r) { 
 
 	if (r.width == width && r.height == height && r.shapef==shapef)
@@ -234,9 +230,54 @@ void Rectangle::Dump() {
 
 }
 
-/// @brief to draw a rectangle
+/// @brief to draw a colored rectangle
 void Rectangle::Drawing() {
 	
+	cout << endl << "Rectangle - Drawing: " << endl;
+	switch (shapef->outline)
+	{
+	case 0:
+		cout << "Outline Black" << endl;
+		break;
+	case 1:
+		cout << "Outline White" << endl;
+		break;
+	case 2:
+		cout << "Outline Red" << endl;
+		break;
+	case 3:
+		cout << "Outline Green" << endl;
+		break;
+	case 4:
+		cout << "Outline Blue" << endl;
+		break;
+	default:
+		WarningMessage("Rectangle - Drawing: Outline not colored");
+		break;
+	}
+
+	switch (shapef->fill)
+	{
+	case 0:
+		cout << "Fill Black" << endl;
+		break;
+	case 1:
+		cout << "Fill White" << endl;
+		break;
+	case 2:
+		cout << "Fill Red" << endl;
+		break;
+	case 3:
+		cout << "Fill Green" << endl;
+		break;
+	case 4:
+		cout << "Fill Blue" << endl;
+		break;
+	default:
+		WarningMessage("Rectangle - Drawing: Fill not colored");
+		break;
+	}
+	cout << endl;
 
 }
 

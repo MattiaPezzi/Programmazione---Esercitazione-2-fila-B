@@ -1,7 +1,8 @@
 /*! \file CRhombus.h
 	\brief Declaration of the class Rhombus
 
-	Details.
+	Pezzi Mattia - Pichetto Andrea
+	Implementation of color drawing in quadrilateral shapes
 */
 
 
@@ -66,7 +67,7 @@ public:
 	float GetSide();	
 	/// @}
 	
-	/// @name PURE VIRTUAL FUNCTIONS - IMPLEMENTATION
+	/// @name PURE VIRTUAL FUNCTIONS - RHOMBUS DRAWING
 	/// @{
 	void Drawing();
 	/// @}
